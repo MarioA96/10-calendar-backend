@@ -31,6 +31,13 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/events', require('./routes/events'));
 
 
+// Ruta estatic de entrada a la aplicacion
+app.get('*', (req, res) => {
+    // res.sendFile('/public/index.html', { root: __dirname });
+    res.sendFile( __dirname + '/public/index.html' );
+} )
+
+
 //Escuchar peticiones
 app.listen( process.env.PORT, () => {
     console.log(`Servidor corriendo en el puerto ${ process.env.PORT }`)
